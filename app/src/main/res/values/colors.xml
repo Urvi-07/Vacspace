@@ -1,5 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+
+    <!-- VacSpace Brand -->
+    <color name="vacspace_primary">#5B3FC4</color>
+    <color name="vacspace_primary_dark">#4527A0</color>
+    <color name="vacspace_primary_light">#7C5CE8</color>
+
+    <!-- Background & Surface -->
+    <color name="vacspace_background">#F8F7FC</color>
+    <color name="vacspace_surface">#FFFFFF</color>
+
+    <!-- Text -->
+    <color name="vacspace_text_primary">#17152A</color>
+    <color name="vacspace_text_secondary">#6F6B7D</color>
+    <color name="vacspace_text_white">#FFFFFF</color>
+
+    <!-- Status -->
+    <color name="vacspace_success">#2E9D67</color>
+    <color name="vacspace_warning">#E5A33D</color>
+    <color name="vacspace_error">#D9534F</color>
+
 </resources>
