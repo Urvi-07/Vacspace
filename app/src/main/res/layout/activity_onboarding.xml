@@ -1,177 +1,661 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<androidx.constraintlayout.widget.ConstraintLayout
+<android.widget.FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/vacspace_background">
 
-    <!-- Top Skip -->
-    <TextView
-        android:id="@+id/tvSkip"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/spacing_lg"
-        android:layout_marginEnd="@dimen/spacing_md"
-        android:text="Skip"
-        android:textColor="@color/vacspace_text_secondary"
-        android:textSize="14sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <ViewFlipper
+        android:id="@+id/viewFlipper"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:inAnimation="@android:anim/fade_in"
+        android:outAnimation="@android:anim/fade_out">
 
-    <!-- Illustration Card -->
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/cardIllustration"
-        android:layout_width="0dp"
-        android:layout_height="280dp"
-        android:layout_marginStart="@dimen/spacing_xl"
-        android:layout_marginTop="@dimen/spacing_lg"
-        android:layout_marginEnd="@dimen/spacing_xl"
-        app:cardBackgroundColor="@color/vacspace_primary"
-        app:cardCornerRadius="@dimen/radius_lg"
-        app:cardElevation="0dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvSkip">
+        <!-- ================================================= -->
+        <!-- PAGE 1 -->
+        <!-- ================================================= -->
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <!-- Decorative Circle -->
-            <View
-                android:layout_width="190dp"
-                android:layout_height="190dp"
-                android:alpha="0.15"
-                android:background="@drawable/bg_splash_circle"
-                app:layout_constraintBottom_toBottomOf="parent"
+            <!-- Skip -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSkip1"
+                android:layout_width="100dp"
+                android:layout_height="55dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="8dp"
+                android:elevation="10dp"
+                android:text="SKIP"
+                android:textAllCaps="false"
+                android:textColor="@color/vacspace_primary"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:backgroundTint="@color/vacspace_surface"
+                app:cornerRadius="20dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.85"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.2" />
+                app:layout_constraintTop_toTopOf="parent" />
 
-            <!-- Main Icon -->
+            <!-- Main Illustration Card -->
             <com.google.android.material.card.MaterialCardView
-                android:layout_width="110dp"
-                android:layout_height="110dp"
-                app:cardBackgroundColor="@color/vacspace_surface"
-                app:cardCornerRadius="32dp"
-                app:cardElevation="6dp"
-                app:layout_constraintBottom_toBottomOf="parent"
+                android:id="@+id/cardIllustration1"
+                android:layout_width="0dp"
+                android:layout_height="280dp"
+                android:layout_marginStart="@dimen/spacing_xl"
+                android:layout_marginTop="@dimen/spacing_md"
+                android:layout_marginEnd="@dimen/spacing_xl"
+                app:cardBackgroundColor="@color/vacspace_primary"
+                app:cardCornerRadius="28dp"
+                app:cardElevation="0dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                app:layout_constraintTop_toBottomOf="@id/btnSkip1">
 
-                <TextView
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:text="V"
-                    android:textColor="@color/vacspace_primary"
-                    android:textSize="52sp"
-                    android:textStyle="bold" />
+                    android:layout_height="match_parent">
+
+                    <View
+                        android:id="@+id/circle1"
+                        android:layout_width="180dp"
+                        android:layout_height="180dp"
+                        android:alpha="0.18"
+                        android:background="@drawable/bg_splash_circle"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <!-- Building Card -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/buildingCard"
+                        android:layout_width="190dp"
+                        android:layout_height="155dp"
+                        app:cardBackgroundColor="@color/vacspace_surface"
+                        app:cardCornerRadius="20dp"
+                        app:cardElevation="8dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <TextView
+                                android:id="@+id/tvBuilding"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="▥"
+                                android:textColor="@color/vacspace_primary"
+                                android:textSize="72sp"
+                                android:textStyle="bold"
+                                app:layout_constraintBottom_toTopOf="@id/tvBuildingLabel"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <TextView
+                                android:id="@+id/tvBuildingLabel"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="20dp"
+                                android:text="COMMERCIAL SPACE"
+                                android:textColor="@color/vacspace_text_primary"
+                                android:textSize="11sp"
+                                android:textStyle="bold"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <TextView
+                        android:id="@+id/tvBottomLabel1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="18dp"
+                        android:text="DISCOVER • EXPLORE • CONNECT"
+                        android:textColor="@color/vacspace_text_white"
+                        android:textSize="10sp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
             </com.google.android.material.card.MaterialCardView>
 
+            <!-- Title -->
             <TextView
-                android:layout_width="wrap_content"
+                android:id="@+id/tvTitle1"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp"
-                android:text="SPACE • OPPORTUNITY"
-                android:textColor="@color/vacspace_text_white"
-                android:textSize="12sp"
+                android:layout_marginStart="@dimen/spacing_xl"
+                android:layout_marginTop="@dimen/spacing_xl"
+                android:layout_marginEnd="@dimen/spacing_xl"
+                android:gravity="center"
+                android:text="Find the Right Space"
+                android:textColor="@color/vacspace_text_primary"
+                android:textSize="28sp"
                 android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cardIllustration1" />
+
+            <!-- Description -->
+            <TextView
+                android:id="@+id/tvDescription1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_xl"
+                android:layout_marginTop="@dimen/spacing_md"
+                android:layout_marginEnd="@dimen/spacing_xl"
+                android:gravity="center"
+                android:lineSpacingExtra="5dp"
+                android:text="Discover vacant shops, offices, halls and commercial spaces available around you."
+                android:textColor="@color/vacspace_text_secondary"
+                android:textSize="15sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvTitle1" />
+
+            <!-- Indicators -->
+            <View
+                android:id="@+id/indicator1Active"
+                android:layout_width="28dp"
+                android:layout_height="6dp"
+                android:layout_marginBottom="@dimen/spacing_lg"
+                android:background="@drawable/bg_splash_circle"
+                app:layout_constraintBottom_toTopOf="@id/btnNext1"
+                app:layout_constraintEnd_toStartOf="@id/indicator1Dot2"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <View
+                android:id="@+id/indicator1Dot2"
+                android:layout_width="7dp"
+                android:layout_height="6dp"
+                android:layout_marginStart="6dp"
+                android:layout_marginBottom="@dimen/spacing_lg"
+                android:background="@drawable/bg_splash_circle"
+                app:layout_constraintBottom_toTopOf="@id/btnNext1"
+                app:layout_constraintEnd_toStartOf="@id/indicator1Dot3"
+                app:layout_constraintStart_toEndOf="@id/indicator1Active" />
+
+            <View
+                android:id="@+id/indicator1Dot3"
+                android:layout_width="7dp"
+                android:layout_height="6dp"
+                android:layout_marginStart="6dp"
+                android:layout_marginBottom="@dimen/spacing_lg"
+                android:background="@drawable/bg_splash_circle"
+                app:layout_constraintBottom_toTopOf="@id/btnNext1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/indicator1Dot2" />
+
+            <!-- Next Button -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnNext1"
+                android:layout_width="0dp"
+                android:layout_height="58dp"
+                android:layout_marginStart="@dimen/spacing_xl"
+                android:layout_marginEnd="@dimen/spacing_xl"
+                android:layout_marginBottom="@dimen/spacing_xl"
+                android:text="Next  →"
+                android:textAllCaps="false"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:cornerRadius="18dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-    </com.google.android.material.card.MaterialCardView>
 
-    <!-- Heading -->
-    <TextView
-        android:id="@+id/tvTitle"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/spacing_xl"
-        android:layout_marginTop="@dimen/spacing_xl"
-        android:layout_marginEnd="@dimen/spacing_xl"
-        android:gravity="center"
-        android:text="Turn Empty Space Into Opportunity"
-        android:textColor="@color/vacspace_text_primary"
-        android:textSize="28sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cardIllustration" />
+        <!-- ================================================= -->
+        <!-- PAGE 2 -->
+        <!-- ================================================= -->
 
-    <!-- Description -->
-    <TextView
-        android:id="@+id/tvDescription"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/spacing_xl"
-        android:layout_marginTop="@dimen/spacing_md"
-        android:layout_marginEnd="@dimen/spacing_xl"
-        android:gravity="center"
-        android:lineSpacingExtra="4dp"
-        android:text="Discover unused commercial spaces or monetize your idle space with the right opportunity."
-        android:textColor="@color/vacspace_text_secondary"
-        android:textSize="15sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvTitle" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-    <!-- Page Indicator -->
-    <LinearLayout
-        android:id="@+id/pageIndicator"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/spacing_lg"
-        android:gravity="center"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@id/btnNext"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+            <!-- Skip -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSkip2"
+                android:layout_width="100dp"
+                android:layout_height="55dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="8dp"
+                android:elevation="10dp"
+                android:text="SKIP"
+                android:textAllCaps="false"
+                android:textColor="@color/vacspace_primary"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:backgroundTint="@color/vacspace_surface"
+                app:cornerRadius="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <View
-            android:layout_width="24dp"
-            android:layout_height="6dp"
-            android:layout_marginEnd="6dp"
-            android:background="@drawable/bg_splash_circle" />
+            <!-- Illustration -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardIllustration2"
+                android:layout_width="0dp"
+                android:layout_height="280dp"
+                android:layout_marginStart="@dimen/spacing_xl"
+                android:layout_marginTop="@dimen/spacing_md"
+                android:layout_marginEnd="@dimen/spacing_xl"
+                app:cardBackgroundColor="@color/vacspace_primary_dark"
+                app:cardCornerRadius="28dp"
+                app:cardElevation="0dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/btnSkip2">
 
-        <View
-            android:layout_width="6dp"
-            android:layout_height="6dp"
-            android:layout_marginEnd="6dp"
-            android:background="@drawable/bg_splash_circle" />
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
 
-        <View
-            android:layout_width="6dp"
-            android:layout_height="6dp"
-            android:background="@drawable/bg_splash_circle" />
+                    <View
+                        android:id="@+id/circle2"
+                        android:layout_width="190dp"
+                        android:layout_height="190dp"
+                        android:alpha="0.18"
+                        android:background="@drawable/bg_splash_circle"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent" />
 
-    </LinearLayout>
+                    <!-- Value Card -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/valueCard"
+                        android:layout_width="210dp"
+                        android:layout_height="145dp"
+                        app:cardBackgroundColor="@color/vacspace_surface"
+                        app:cardCornerRadius="22dp"
+                        app:cardElevation="8dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
 
-    <!-- Next Button -->
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnNext"
-        android:layout_width="0dp"
-        android:layout_height="58dp"
-        android:layout_marginStart="@dimen/spacing_xl"
-        android:layout_marginEnd="@dimen/spacing_xl"
-        android:layout_marginBottom="@dimen/spacing_xl"
-        android:text="Get Started  →"
-        android:textAllCaps="false"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:cornerRadius="@dimen/radius_md"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+                            <TextView
+                                android:id="@+id/tvGrowth"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="↗"
+                                android:textColor="@color/vacspace_primary"
+                                android:textSize="58sp"
+                                android:textStyle="bold"
+                                app:layout_constraintBottom_toTopOf="@id/tvGrowthLabel"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <TextView
+                                android:id="@+id/tvGrowthLabel"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="24dp"
+                                android:text="TURN IDLE SPACE INTO VALUE"
+                                android:textColor="@color/vacspace_text_primary"
+                                android:textSize="11sp"
+                                android:textStyle="bold"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <TextView
+                        android:id="@+id/tvBottomLabel2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="18dp"
+                        android:text="LIST • MONETIZE • GROW"
+                        android:textColor="@color/vacspace_text_white"
+                        android:textSize="10sp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Title -->
+            <TextView
+                android:id="@+id/tvTitle2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_xl"
+                android:layout_marginTop="@dimen/spacing_xl"
+                android:layout_marginEnd="@dimen/spacing_xl"
+                android:gravity="center"
+                android:text="Make Your Space Work"
+                android:textColor="@color/vacspace_text_primary"
+                android:textSize="28sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cardIllustration2" />
+
+            <!-- Description -->
+            <TextView
+                android:id="@+id/tvDescription2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_xl"
+                android:layout_marginTop="@dimen/spacing_md"
+                android:layout_marginEnd="@dimen/spacing_xl"
+                android:gravity="center"
+                android:lineSpacingExtra="5dp"
+                android:text="Turn your unused commercial space into a valuable income-generating opportunity."
+                android:textColor="@color/vacspace_text_secondary"
+                android:textSize="15sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvTitle2" />
+
+            <!-- Indicators -->
+            <View
+                android:id="@+id/indicator2Dot1"
+                android:layout_width="7dp"
+                android:layout_height="6dp"
+                android:layout_marginBottom="@dimen/spacing_lg"
+                android:background="@drawable/bg_splash_circle"
+                app:layout_constraintBottom_toTopOf="@id/btnNext2"
+                app:layout_constraintEnd_toStartOf="@id/indicator2Active"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <View
+                android:id="@+id/indicator2Active"
+                android:layout_width="28dp"
+                android:layout_height="6dp"
+                android:layout_marginStart="6dp"
+                android:layout_marginBottom="@dimen/spacing_lg"
+                android:background="@drawable/bg_splash_circle"
+                app:layout_constraintBottom_toTopOf="@id/btnNext2"
+                app:layout_constraintEnd_toStartOf="@id/indicator2Dot3"
+                app:layout_constraintStart_toEndOf="@id/indicator2Dot1" />
+
+            <View
+                android:id="@+id/indicator2Dot3"
+                android:layout_width="7dp"
+                android:layout_height="6dp"
+                android:layout_marginStart="6dp"
+                android:layout_marginBottom="@dimen/spacing_lg"
+                android:background="@drawable/bg_splash_circle"
+                app:layout_constraintBottom_toTopOf="@id/btnNext2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/indicator2Active" />
+
+            <!-- Next -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnNext2"
+                android:layout_width="0dp"
+                android:layout_height="58dp"
+                android:layout_marginStart="@dimen/spacing_xl"
+                android:layout_marginEnd="@dimen/spacing_xl"
+                android:layout_marginBottom="@dimen/spacing_xl"
+                android:text="Next  →"
+                android:textAllCaps="false"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:cornerRadius="18dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <!-- ================================================= -->
+        <!-- PAGE 3 -->
+        <!-- ================================================= -->
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <!-- Skip -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSkip3"
+                android:layout_width="100dp"
+                android:layout_height="55dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="8dp"
+                android:elevation="10dp"
+                android:text="SKIP"
+                android:textAllCaps="false"
+                android:textColor="@color/vacspace_primary"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:backgroundTint="@color/vacspace_surface"
+                app:cornerRadius="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <!-- Illustration -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardIllustration3"
+                android:layout_width="0dp"
+                android:layout_height="280dp"
+                android:layout_marginStart="@dimen/spacing_xl"
+                android:layout_marginTop="@dimen/spacing_md"
+                android:layout_marginEnd="@dimen/spacing_xl"
+                app:cardBackgroundColor="@color/vacspace_primary"
+                app:cardCornerRadius="28dp"
+                app:cardElevation="0dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/btnSkip3">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <View
+                        android:id="@+id/circle3"
+                        android:layout_width="170dp"
+                        android:layout_height="170dp"
+                        android:alpha="0.18"
+                        android:background="@drawable/bg_splash_circle"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent" />
+
+                    <!-- Owner Card -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/ownerCard"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        app:cardBackgroundColor="@color/vacspace_surface"
+                        app:cardCornerRadius="22dp"
+                        app:cardElevation="7dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@id/connectionCard"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:text="OWNER"
+                            android:textColor="@color/vacspace_primary"
+                            android:textSize="13sp"
+                            android:textStyle="bold" />
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <!-- Connection Card -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/connectionCard"
+                        android:layout_width="65dp"
+                        android:layout_height="65dp"
+                        app:cardBackgroundColor="@color/vacspace_surface"
+                        app:cardCornerRadius="33dp"
+                        app:cardElevation="8dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:text="↔"
+                            android:textColor="@color/vacspace_primary"
+                            android:textSize="28sp"
+                            android:textStyle="bold" />
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <!-- Seeker Card -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/seekerCard"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        app:cardBackgroundColor="@color/vacspace_surface"
+                        app:cardCornerRadius="22dp"
+                        app:cardElevation="7dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/connectionCard"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:text="SEEKER"
+                            android:textColor="@color/vacspace_primary"
+                            android:textSize="13sp"
+                            android:textStyle="bold" />
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <TextView
+                        android:id="@+id/tvBottomLabel3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="18dp"
+                        android:text="SPACE MEETS OPPORTUNITY"
+                        android:textColor="@color/vacspace_text_white"
+                        android:textSize="10sp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Title -->
+            <TextView
+                android:id="@+id/tvTitle3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_xl"
+                android:layout_marginTop="@dimen/spacing_xl"
+                android:layout_marginEnd="@dimen/spacing_xl"
+                android:gravity="center"
+                android:text="Space Meets Opportunity"
+                android:textColor="@color/vacspace_text_primary"
+                android:textSize="28sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cardIllustration3" />
+
+            <!-- Description -->
+            <TextView
+                android:id="@+id/tvDescription3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_xl"
+                android:layout_marginTop="@dimen/spacing_md"
+                android:layout_marginEnd="@dimen/spacing_xl"
+                android:gravity="center"
+                android:lineSpacingExtra="5dp"
+                android:text="Connect space owners with people looking for the perfect place to build their next opportunity."
+                android:textColor="@color/vacspace_text_secondary"
+                android:textSize="15sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvTitle3" />
+
+            <!-- Indicators -->
+            <View
+                android:id="@+id/indicator3Dot1"
+                android:layout_width="7dp"
+                android:layout_height="6dp"
+                android:layout_marginBottom="@dimen/spacing_lg"
+                android:background="@drawable/bg_splash_circle"
+                app:layout_constraintBottom_toTopOf="@id/btnGetStarted"
+                app:layout_constraintEnd_toStartOf="@id/indicator3Dot2"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <View
+                android:id="@+id/indicator3Dot2"
+                android:layout_width="7dp"
+                android:layout_height="6dp"
+                android:layout_marginStart="6dp"
+                android:layout_marginBottom="@dimen/spacing_lg"
+                android:background="@drawable/bg_splash_circle"
+                app:layout_constraintBottom_toTopOf="@id/btnGetStarted"
+                app:layout_constraintEnd_toStartOf="@id/indicator3Active"
+                app:layout_constraintStart_toEndOf="@id/indicator3Dot1" />
+
+            <View
+                android:id="@+id/indicator3Active"
+                android:layout_width="28dp"
+                android:layout_height="6dp"
+                android:layout_marginStart="6dp"
+                android:layout_marginBottom="@dimen/spacing_lg"
+                android:background="@drawable/bg_splash_circle"
+                app:layout_constraintBottom_toTopOf="@id/btnGetStarted"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/indicator3Dot2" />
+
+            <!-- Get Started -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnGetStarted"
+                android:layout_width="0dp"
+                android:layout_height="58dp"
+                android:layout_marginStart="@dimen/spacing_xl"
+                android:layout_marginEnd="@dimen/spacing_xl"
+                android:layout_marginBottom="@dimen/spacing_xl"
+                android:text="Get Started  →"
+                android:textAllCaps="false"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:cornerRadius="18dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ViewFlipper>
+
+</android.widget.FrameLayout>

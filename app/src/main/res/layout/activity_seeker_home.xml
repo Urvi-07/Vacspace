@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/vacspace_background">
+
+    <!-- Header -->
+    <TextView
+        android:id="@+id/tvWelcome"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/spacing_xl"
+        android:layout_marginTop="@dimen/spacing_xl"
+        android:layout_marginEnd="@dimen/spacing_md"
+        android:text="Good Morning 👋"
+        android:textColor="@color/vacspace_text_secondary"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toStartOf="@id/tvProfile"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvUserName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/spacing_xl"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="@dimen/spacing_md"
+        android:text="Find your next space"
+        android:textColor="@color/vacspace_text_primary"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@id/tvProfile"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvWelcome" />
+
+    <!-- Profile -->
+    <TextView
+        android:id="@+id/tvProfile"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="@dimen/spacing_xl"
+        android:layout_marginEnd="@dimen/spacing_xl"
+        android:background="@drawable/bg_splash_circle"
+        android:gravity="center"
+        android:text="M"
+        android:textColor="@color/vacspace_primary"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Search Card -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/searchCard"
+        android:layout_width="0dp"
+        android:layout_height="58dp"
+        android:layout_marginStart="@dimen/spacing_xl"
+        android:layout_marginTop="@dimen/spacing_lg"
+        android:layout_marginEnd="@dimen/spacing_xl"
+        app:cardBackgroundColor="@color/vacspace_surface"
+        app:cardCornerRadius="18dp"
+        app:cardElevation="2dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvUserName">
+
+        <TextView
+            android:id="@+id/tvSearch"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:paddingStart="20dp"
+            android:text="⌕   Search spaces, locations..."
+            android:textColor="@color/vacspace_text_secondary"
+            android:textSize="14sp" />
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- Category Title -->
+    <TextView
+        android:id="@+id/tvCategoryTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/spacing_xl"
+        android:layout_marginTop="@dimen/spacing_lg"
+        android:text="Explore by category"
+        android:textColor="@color/vacspace_text_primary"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/searchCard" />
+
+    <!-- Shop -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardShop"
+        android:layout_width="0dp"
+        android:layout_height="72dp"
+        android:layout_marginStart="@dimen/spacing_xl"
+        android:layout_marginTop="@dimen/spacing_sm"
+        android:layout_marginEnd="6dp"
+        app:cardBackgroundColor="@color/vacspace_surface"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="1dp"
+        app:layout_constraintEnd_toStartOf="@id/cardOffice"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvCategoryTitle">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="SHOP"
+            android:textColor="@color/vacspace_primary"
+            android:textSize="11sp"
+            android:textStyle="bold" />
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- Office -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardOffice"
+        android:layout_width="0dp"
+        android:layout_height="72dp"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="@dimen/spacing_sm"
+        android:layout_marginEnd="6dp"
+        app:cardBackgroundColor="@color/vacspace_surface"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="1dp"
+        app:layout_constraintEnd_toStartOf="@id/cardHall"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toEndOf="@id/cardShop"
+        app:layout_constraintTop_toBottomOf="@id/tvCategoryTitle">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="OFFICE"
+            android:textColor="@color/vacspace_primary"
+            android:textSize="11sp"
+            android:textStyle="bold" />
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- Hall -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardHall"
+        android:layout_width="0dp"
+        android:layout_height="72dp"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="@dimen/spacing_sm"
+        android:layout_marginEnd="6dp"
+        app:cardBackgroundColor="@color/vacspace_surface"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="1dp"
+        app:layout_constraintEnd_toStartOf="@id/cardWarehouse"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toEndOf="@id/cardOffice"
+        app:layout_constraintTop_toBottomOf="@id/tvCategoryTitle">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="HALL"
+            android:textColor="@color/vacspace_primary"
+            android:textSize="11sp"
+            android:textStyle="bold" />
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- Warehouse -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardWarehouse"
+        android:layout_width="0dp"
+        android:layout_height="72dp"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="@dimen/spacing_sm"
+        android:layout_marginEnd="@dimen/spacing_xl"
+        app:cardBackgroundColor="@color/vacspace_surface"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="1dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toEndOf="@id/cardHall"
+        app:layout_constraintTop_toBottomOf="@id/tvCategoryTitle">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="WAREHOUSE"
+            android:textColor="@color/vacspace_primary"
+            android:textSize="10sp"
+            android:textStyle="bold" />
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- Available Spaces -->
+    <TextView
+        android:id="@+id/tvAvailableTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/spacing_xl"
+        android:layout_marginTop="@dimen/spacing_lg"
+        android:text="Available Spaces"
+        android:textColor="@color/vacspace_text_primary"
+        android:textSize="19sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cardShop" />
+
+    <!-- Space Card -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardSpace"
+        android:layout_width="0dp"
+        android:layout_height="135dp"
+        android:layout_marginStart="@dimen/spacing_xl"
+        android:layout_marginTop="@dimen/spacing_sm"
+        android:layout_marginEnd="@dimen/spacing_xl"
+        app:cardBackgroundColor="@color/vacspace_surface"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="3dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvAvailableTitle">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <View
+                android:id="@+id/spaceImage"
+                android:layout_width="105dp"
+                android:layout_height="105dp"
+                android:layout_marginStart="14dp"
+                android:background="@drawable/bg_splash"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvSpaceName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="14dp"
+                android:layout_marginTop="18dp"
+                android:layout_marginEnd="14dp"
+                android:text="Premium Retail Shop"
+                android:textColor="@color/vacspace_text_primary"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/spaceImage"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvSpaceLocation"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="Ahmedabad • 850 sq.ft"
+                android:textColor="@color/vacspace_text_secondary"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="@id/tvSpaceName"
+                app:layout_constraintStart_toStartOf="@id/tvSpaceName"
+                app:layout_constraintTop_toBottomOf="@id/tvSpaceName" />
+
+            <TextView
+                android:id="@+id/tvSpacePrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="₹20,000 / month"
+                android:textColor="@color/vacspace_primary"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@id/tvSpaceName"
+                app:layout_constraintTop_toBottomOf="@id/tvSpaceLocation" />
+
+            <TextView
+                android:id="@+id/tvViewDetails"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="14dp"
+                android:text="View →"
+                android:textColor="@color/vacspace_primary"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@id/tvSpacePrice"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- Bottom Navigation -->
+    <TextView
+        android:id="@+id/tvHomeNav"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginBottom="20dp"
+        android:text="HOME"
+        android:textColor="@color/vacspace_primary"
+        android:textSize="11sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/tvExploreNav"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:text="EXPLORE"
+        android:textColor="@color/vacspace_text_secondary"
+        android:textSize="11sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/tvBookingsNav"
+        app:layout_constraintStart_toEndOf="@id/tvHomeNav" />
+
+    <TextView
+        android:id="@+id/tvBookingsNav"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:text="BOOKINGS"
+        android:textColor="@color/vacspace_text_secondary"
+        android:textSize="11sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/tvProfileNav"
+        app:layout_constraintStart_toEndOf="@id/tvExploreNav" />
+
+    <TextView
+        android:id="@+id/tvProfileNav"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="20dp"
+        android:text="PROFILE"
+        android:textColor="@color/vacspace_text_secondary"
+        android:textSize="11sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
