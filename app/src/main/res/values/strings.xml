@@ -1,3 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <string name="app_name">Vacspace</string>
+    <string name="app_tagline">Unused Commercial Space for Monetization</string>
+    <string name="app_slogan">Your Space. Their Opportunity.</string>
+    <string name="app_subtitle">Turn idle spaces into opportunities.</string>
+
 </resources>
