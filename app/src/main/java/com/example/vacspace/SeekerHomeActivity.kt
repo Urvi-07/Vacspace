@@ -42,7 +42,10 @@ class SeekerHomeActivity : AppCompatActivity() {
             )
 
         val userName =
-            sharedPreferences.getString("name", "User")
+            sharedPreferences.getString(
+                "name",
+                "User"
+            )
 
         // Display user name
         tvUserName.text =
@@ -59,7 +62,10 @@ class SeekerHomeActivity : AppCompatActivity() {
         searchCard.setOnClickListener {
 
             val intent =
-                Intent(this, ExploreActivity::class.java)
+                Intent(
+                    this,
+                    ExploreActivity::class.java
+                )
 
             startActivity(intent)
         }
@@ -68,7 +74,10 @@ class SeekerHomeActivity : AppCompatActivity() {
         cardSpace.setOnClickListener {
 
             val intent =
-                Intent(this, ExploreActivity::class.java)
+                Intent(
+                    this,
+                    ExploreActivity::class.java
+                )
 
             startActivity(intent)
         }
@@ -77,7 +86,10 @@ class SeekerHomeActivity : AppCompatActivity() {
         tvExploreNav.setOnClickListener {
 
             val intent =
-                Intent(this, ExploreActivity::class.java)
+                Intent(
+                    this,
+                    ExploreActivity::class.java
+                )
 
             startActivity(intent)
         }
@@ -86,7 +98,10 @@ class SeekerHomeActivity : AppCompatActivity() {
         tvBookingsNav.setOnClickListener {
 
             val intent =
-                Intent(this, MyBookingsActivity::class.java)
+                Intent(
+                    this,
+                    MyBookingsActivity::class.java
+                )
 
             startActivity(intent)
         }
@@ -94,13 +109,25 @@ class SeekerHomeActivity : AppCompatActivity() {
         // Profile Navigation
         tvProfileNav.setOnClickListener {
 
-            // Profile screen will be added later
+            val intent =
+                Intent(
+                    this,
+                    ProfileActivity::class.java
+                )
+
+            startActivity(intent)
         }
 
         // Profile Circle
         tvProfile.setOnClickListener {
 
-            // Profile screen will be added later
+            val intent =
+                Intent(
+                    this,
+                    ProfileActivity::class.java
+                )
+
+            startActivity(intent)
         }
     }
 }

@@ -16,9 +16,15 @@ class RegisterActivity : AppCompatActivity() {
 
         setContentView(R.layout.activity_register)
 
-        val name = findViewById<EditText>(R.id.editTextName)
-        val email = findViewById<EditText>(R.id.editTextEmail)
-        val password = findViewById<EditText>(R.id.editTextPassword)
+        val name =
+            findViewById<EditText>(R.id.editTextName)
+
+        val email =
+            findViewById<EditText>(R.id.editTextEmail)
+
+        val password =
+            findViewById<EditText>(R.id.editTextPassword)
+
         val confirmPassword =
             findViewById<EditText>(R.id.editTextConfirmPassword)
 
@@ -27,6 +33,12 @@ class RegisterActivity : AppCompatActivity() {
 
         val ownerCard =
             findViewById<MaterialCardView>(R.id.cardOwner)
+
+        val seekerText =
+            findViewById<TextView>(R.id.tvSeeker)
+
+        val ownerText =
+            findViewById<TextView>(R.id.tvOwner)
 
         val btnCreateAccount =
             findViewById<MaterialButton>(R.id.btnCreateAccount)
@@ -39,34 +51,85 @@ class RegisterActivity : AppCompatActivity() {
 
         var selectedRole = "Space Seeker"
 
-        // Space Seeker selected by default
+        // Default selection
         seekerCard.strokeWidth = 4
-        ownerCard.strokeWidth = 1
+        seekerCard.strokeColor =
+            getColor(R.color.vacspace_primary)
 
-        // Select Space Seeker
-        seekerCard.setOnClickListener {
+        ownerCard.strokeWidth = 1
+        ownerCard.strokeColor =
+            getColor(R.color.vacspace_text_secondary)
+
+        // Function to select Space Seeker
+        fun selectSeeker() {
 
             selectedRole = "Space Seeker"
 
             seekerCard.strokeWidth = 4
+            seekerCard.strokeColor =
+                getColor(R.color.vacspace_primary)
+
             ownerCard.strokeWidth = 1
+            ownerCard.strokeColor =
+                getColor(R.color.vacspace_text_secondary)
         }
 
-        // Select Space Owner
-        ownerCard.setOnClickListener {
+        // Function to select Space Owner
+        fun selectOwner() {
 
             selectedRole = "Space Owner"
 
             ownerCard.strokeWidth = 4
+            ownerCard.strokeColor =
+                getColor(R.color.vacspace_primary)
+
             seekerCard.strokeWidth = 1
+            seekerCard.strokeColor =
+                getColor(R.color.vacspace_text_secondary)
+
+            Toast.makeText(
+                this,
+                "Space Owner selected",
+                Toast.LENGTH_SHORT
+            ).show()
+        }
+
+        // Space Seeker card
+        seekerCard.setOnClickListener {
+
+            selectSeeker()
+        }
+
+        // Space Seeker text
+        seekerText.setOnClickListener {
+
+            selectSeeker()
+        }
+
+        // Space Owner card
+        ownerCard.setOnClickListener {
+
+            selectOwner()
+        }
+
+        // Space Owner text
+        ownerText.setOnClickListener {
+
+            selectOwner()
         }
 
         // Create Account
         btnCreateAccount.setOnClickListener {
 
-            val userName = name.text.toString().trim()
-            val userEmail = email.text.toString().trim()
-            val userPassword = password.text.toString()
+            val userName =
+                name.text.toString().trim()
+
+            val userEmail =
+                email.text.toString().trim()
+
+            val userPassword =
+                password.text.toString()
+
             val userConfirmPassword =
                 confirmPassword.text.toString()
 
@@ -89,25 +152,31 @@ class RegisterActivity : AppCompatActivity() {
 
                 password.error =
                     "Password must contain at least 6 characters"
+
                 password.requestFocus()
 
             } else if (userConfirmPassword.isEmpty()) {
 
                 confirmPassword.error =
                     "Confirm your password"
+
                 confirmPassword.requestFocus()
 
             } else if (userPassword != userConfirmPassword) {
 
                 confirmPassword.error =
                     "Passwords do not match"
+
                 confirmPassword.requestFocus()
 
             } else {
 
                 // Save account locally
                 val sharedPreferences =
-                    getSharedPreferences("VacspaceUser", MODE_PRIVATE)
+                    getSharedPreferences(
+                        "VacspaceUser",
+                        MODE_PRIVATE
+                    )
 
                 sharedPreferences.edit()
                     .putString("name", userName)
@@ -122,7 +191,12 @@ class RegisterActivity : AppCompatActivity() {
                     Toast.LENGTH_SHORT
                 ).show()
 
-                val intent = Intent(this, LoginActivity::class.java)
+                val intent =
+                    Intent(
+                        this,
+                        LoginActivity::class.java
+                    )
+
                 startActivity(intent)
                 finish()
             }
