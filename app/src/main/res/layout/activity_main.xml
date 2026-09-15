@@ -5,145 +5,103 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg_splash">
+    android:background="@color/vacspace_background">
 
-    <!-- Decorative Circle -->
+    <!-- Subtle background detail -->
     <View
         android:id="@+id/decorativeCircle"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
-        android:alpha="0.7"
+        android:layout_width="260dp"
+        android:layout_height="260dp"
+        android:alpha="0.10"
         android:background="@drawable/bg_splash_circle"
-        android:translationX="110dp"
-        android:translationY="-80dp"
+        android:translationX="125dp"
+        android:translationY="-125dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- Top Label -->
+    <!-- Brand statement -->
     <TextView
         android:id="@+id/tvTopLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
-        android:letterSpacing="0.18"
-        android:text="SMART SPACE MARKETPLACE"
-        android:textColor="#CCFFFFFF"
-        android:textSize="10sp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="38dp"
+        android:letterSpacing="0.22"
+        android:text="COMMERCIAL&#10;SPACES&#10;REIMAGINED"
+        android:textColor="@color/vacspace_text_secondary"
+        android:textSize="8sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- Logo -->
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/logoCard"
-        android:layout_width="112dp"
-        android:layout_height="112dp"
+    <!-- Teal accent -->
+    <View
+        android:id="@+id/topAccent"
+        android:layout_width="38dp"
+        android:layout_height="3dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/vacspace_accent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvTopLabel" />
+
+    <!-- Approved Vacspace logo -->
+    <ImageView
+        android:id="@+id/ivVacspaceLogo"
+        android:layout_width="310dp"
+        android:layout_height="250dp"
         android:layout_marginTop="100dp"
-        app:cardBackgroundColor="#FFFFFF"
-        app:cardCornerRadius="32dp"
-        app:cardElevation="10dp"
-        app:strokeWidth="0dp"
+        android:contentDescription="Vacspace logo"
+        android:scaleType="fitCenter"
+        android:src="@drawable/img"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@id/topAccent" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="V"
-            android:textColor="@color/vacspace_primary"
-            android:textSize="64sp"
-            android:textStyle="bold" />
-
-    </com.google.android.material.card.MaterialCardView>
-
-    <!-- App Name -->
-    <TextView
-        android:id="@+id/tvAppName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="22dp"
-        android:text="@string/app_name"
-        android:textColor="@color/vacspace_text_white"
-        android:textSize="34sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/logoCard" />
-
-    <!-- Tagline -->
-    <TextView
-        android:id="@+id/tvTagline"
-        android:layout_width="280dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:gravity="center"
-        android:lineSpacingExtra="3dp"
-        android:text="@string/app_tagline"
-        android:textColor="#E6FFFFFF"
-        android:textSize="15sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvAppName" />
-
-    <!-- Slogan -->
-    <TextView
-        android:id="@+id/tvSlogan"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="18dp"
-        android:text="@string/app_slogan"
-        android:textColor="#FFFFFF"
-        android:textSize="13sp"
-        android:textStyle="italic"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvTagline" />
-
-    <!-- Bottom Message -->
+    <!-- Bottom message -->
     <TextView
         android:id="@+id/tvBottomMessage"
-        android:layout_width="wrap_content"
+        android:layout_width="280dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="46dp"
-        android:text="Built for a smarter tomorrow."
-        android:textColor="#CCFFFFFF"
+        android:layout_marginBottom="34dp"
+        android:gravity="center"
+        android:text="Empty spaces.&#10;Brighter possibilities."
+        android:textColor="@color/vacspace_text_secondary"
         android:textSize="12sp"
-        app:layout_constraintBottom_toTopOf="@id/progressContainer"
+        app:layout_constraintBottom_toTopOf="@id/progressFirst"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <!-- Progress Indicator -->
-    <LinearLayout
-        android:id="@+id/progressContainer"
-        android:layout_width="100dp"
+    <!-- Active progress -->
+    <View
+        android:id="@+id/progressFirst"
+        android:layout_width="42dp"
         android:layout_height="4dp"
-        android:layout_marginBottom="42dp"
-        android:gravity="center"
-        android:orientation="horizontal"
+        android:layout_marginEnd="6dp"
+        android:layout_marginBottom="40dp"
+        android:background="@drawable/bg_progress_active"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintEnd_toStartOf="@id/progressSecond" />
 
-        <View
-            android:layout_width="55dp"
-            android:layout_height="4dp"
-            android:background="#FFFFFF" />
+    <!-- Inactive progress -->
+    <View
+        android:id="@+id/progressSecond"
+        android:layout_width="18dp"
+        android:layout_height="4dp"
+        android:layout_marginEnd="6dp"
+        android:layout_marginBottom="40dp"
+        android:background="@drawable/bg_progress_inactive"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/progressThird" />
 
-        <View
-            android:layout_width="25dp"
-            android:layout_height="4dp"
-            android:layout_marginStart="5dp"
-            android:background="#66FFFFFF" />
-
-        <View
-            android:layout_width="10dp"
-            android:layout_height="4dp"
-            android:layout_marginStart="5dp"
-            android:background="#33FFFFFF" />
-
-    </LinearLayout>
+    <!-- Inactive progress -->
+    <View
+        android:id="@+id/progressThird"
+        android:layout_width="8dp"
+        android:layout_height="4dp"
+        android:layout_marginBottom="40dp"
+        android:background="@drawable/bg_progress_inactive"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
