@@ -591,4 +591,4 @@ The application allows Space Owners to list their unused commercial spaces and m
 
 The project demonstrates important Android development concepts including Activities, Intents, XML layouts, ConstraintLayout, Material Components, SharedPreferences, input validation, ViewFlipper, Toast messages and DatePickerDialog.
 
-Vacspace focuses on converting unused commercial spaces into potential income-generating opportunities while making it easier for seekers to discover suitable spaces.V
+Vacspace focuses on converting unused commercial spaces into potential income-generating opportunities while making it easier for seekers to discover suitable spaces.
