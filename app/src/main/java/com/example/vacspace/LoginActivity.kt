@@ -1,5 +1,6 @@
 package com.example.vacspace
 
+import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
 import android.widget.EditText
@@ -26,6 +27,9 @@ class LoginActivity : AppCompatActivity() {
 
         val tvBack =
             findViewById<TextView>(R.id.tvBack)
+
+        val tvForgotPassword =
+            findViewById<TextView>(R.id.tvForgotPassword)
 
         // Login
         btnLogin.setOnClickListener {
@@ -95,6 +99,52 @@ class LoginActivity : AppCompatActivity() {
             }
         }
 
+        // Forgot Password
+        tvForgotPassword.setOnClickListener {
+
+            val resetEmail = EditText(this)
+            resetEmail.hint = "Enter registered email"
+            resetEmail.setPadding(40, 20, 40, 20)
+
+            AlertDialog.Builder(this)
+                .setTitle("Reset Password")
+                .setView(resetEmail)
+                .setPositiveButton("Continue") { _, _ ->
+
+                    val enteredEmail =
+                        resetEmail.text.toString().trim()
+
+                    val sharedPreferences =
+                        getSharedPreferences("VacspaceUser", MODE_PRIVATE)
+
+                    val savedEmail =
+                        sharedPreferences.getString("email", "")
+
+                    if (enteredEmail.isEmpty()) {
+
+                        Toast.makeText(
+                            this,
+                            "Enter your email",
+                            Toast.LENGTH_SHORT
+                        ).show()
+
+                    } else if (enteredEmail == savedEmail) {
+
+                        showPasswordResetDialog()
+
+                    } else {
+
+                        Toast.makeText(
+                            this,
+                            "Email not registered",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
+                }
+                .setNegativeButton("Cancel", null)
+                .show()
+        }
+
         // Create Account
         tvRegister.setOnClickListener {
 
@@ -109,5 +159,47 @@ class LoginActivity : AppCompatActivity() {
 
             finish()
         }
+    }
+
+    private fun showPasswordResetDialog() {
+
+        val newPassword = EditText(this)
+        newPassword.hint = "Enter new password"
+        newPassword.setPadding(40, 20, 40, 20)
+
+        AlertDialog.Builder(this)
+            .setTitle("Create New Password")
+            .setView(newPassword)
+            .setPositiveButton("Update") { _, _ ->
+
+                val password =
+                    newPassword.text.toString()
+
+                if (password.length < 6) {
+
+                    Toast.makeText(
+                        this,
+                        "Password must contain at least 6 characters",
+                        Toast.LENGTH_SHORT
+                    ).show()
+
+                } else {
+
+                    val sharedPreferences =
+                        getSharedPreferences("VacspaceUser", MODE_PRIVATE)
+
+                    sharedPreferences.edit()
+                        .putString("password", password)
+                        .apply()
+
+                    Toast.makeText(
+                        this,
+                        "Password updated successfully",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+            }
+            .setNegativeButton("Cancel", null)
+            .show()
     }
 }
